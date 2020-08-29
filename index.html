@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="Лабораторная работа №1 по дисциплине веб-программирование." name="description">
+    <meta content="Антоневич Глеб Владимирович" name="author">
+    <meta content="ИТМО, ВТ, ПИП, Лабораторная работа" name="keywords"/>
+
+    <link href="style.css" rel="stylesheet">
+    <title>Lab №1</title>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <header class="header">
+
+        <span>
+            Антоневич Глеб Владимирович, P3211, Вариант 2201
+        </span>
+
+        <!--        <h1>Веб-программирование, Лабораторная работа №1, Вариант 2201</h1>-->
+    </header>
+
+    <div class="content">
+
+        <table>
+
+            <caption>Валидация введённых значений:</caption>
+
+            <tr>
+                <th scope="col">Переменная</th>
+                <th scope="col">Значение</th>
+            </tr>
+
+
+            <tbody>
+
+            <tr>
+                <td>
+                    <label>X:</label>
+                </td>
+                <td>
+                    <label>
+                        <select name="X-select">
+                            <option>-3</option>
+                            <option>-2</option>
+                            <option>-1</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </label>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>Y:</td>
+                <td>
+                    <label>
+                        <input name="Y-text"
+                               placeholder="(-5: 5)"
+                               required type="number">
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">R:</td>
+
+                <td>
+                    <label>
+                        <input name="R-radio" type="radio" value="1">
+                    </label>
+                    1
+                </td>
+
+                <td>
+                    <label>
+                        <input name="R-radio" type="radio" value="2">
+                    </label>
+                    2
+                </td>
+
+                <td>
+                    <label>
+                        <input name="R-radio" type="radio" value="3">
+                    </label>
+                    3
+                </td>
+
+                <td>
+                    <label>
+                        <input name="R-radio" type="radio" value="4">
+                    </label>
+                    4
+                </td>
+
+                <td>
+                    <label>
+                        <input name="R-radio" type="radio" value="5">
+                    </label>
+                    5
+                </td>
+
+            </tr>
+
+            <tr>
+                <svg>
+                    <line stroke="#000720" x1="0" x2="300" y1="150" y2="150"></line>
+                    <line stroke="#000720" x1="150" x2="150" y1="0" y2="300"></line>
+
+                    <text x="265" y="140">R</text>
+                    <line stroke="#000720" x1="210" x2="210" y1="148" y2="152"></line>
+
+                    <text x="200" y="140">R/2</text>
+                    <line stroke="#000720" x1="90" x2="90" y1="148" y2="152"></line>
+
+                    <text x="75" y="140">-R/2</text>
+                    <line stroke="#000720" x1="30" x2="30" y1="148" y2="152"></line>
+
+                    <text x="20" y="140">-R</text>
+                    <line stroke="#000720" x1="148" x2="152" y1="30" y2="30"></line>
+
+                    <text x="156" y="35">R</text>
+                    <line stroke="#000720" x1="148" x2="152" y1="90" y2="90"></line>
+
+                    <text x="156" y="95">R/2</text>
+                    <line stroke="#000720" x1="148" x2="152" y1="210" y2="210"></line>
+
+                    <text x="156" y="215">-R/2</text>
+                    <line stroke="#000720" x1="148" x2="152" y1="270" y2="270"></line>
+
+                    <text x="156" y="275">-R</text>
+
+                    <polygon fill="#000720" points="300,150 295,155 295,145" stroke="#000720"></polygon>
+                    <polygon fill="#000720" points="150,0   145,5   155,5" stroke="#000720"></polygon>
+
+
+                    <path d="M 150 30 C 100 30 30 60 30 150 L 150 150 Z" fill="blue" fill-opacity="0.4" stroke="navy"></path>
+
+                    <polygon fill="blue" fill-opacity="0.4" points="150,30 270,150 150,150" stroke="navy"></polygon>
+                    
+                    <rect fill="blue" fill-opacity="0.4" height="60" stroke="navy" width="120" x="30" y="150"></rect>
+
+                    <circle cx="150" cy="150" fill="red" fill-opacity="0.7" id="pointer" r="5" stroke="firebrick" visibility="hidden"></circle>
+                </svg>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+    </div>
+
+
+            <footer>
+                <span>
+                    Веб-программирование, Лабораторная работа №1
+                </span>
+            </footer>
+
+</div>
+</body>
+
+</html>
