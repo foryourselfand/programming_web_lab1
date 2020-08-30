@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru-RU">
+<html lang="ru-RU" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <meta content="Антоневич Глеб Владимирович" name="author">
     <meta content="ИТМО, ВТ, ПИП, Лабораторная работа" name="keywords"/>
 
-    <link href="style.css" rel="stylesheet">
+    <link href="stylee.css" rel="stylesheet">
     <title>Lab №1</title>
 </head>
 
@@ -20,11 +20,9 @@
         <span>
             Антоневич Глеб Владимирович, P3211, Вариант 2201
         </span>
-
-        <!--        <h1>Веб-программирование, Лабораторная работа №1, Вариант 2201</h1>-->
     </header>
 
-    <div class="content">
+    <form class="content">
 
         <table>
 
@@ -44,11 +42,11 @@
                 </td>
                 <td>
                     <label>
-                        <select name="X-select">
+                        <select id="X-select">
                             <option>-3</option>
                             <option>-2</option>
                             <option>-1</option>
-                            <option>0</option>
+                            <option selected="selected">0</option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -60,13 +58,12 @@
 
             </tr>
 
+
             <tr>
                 <td>Y:</td>
                 <td>
                     <label>
-                        <input name="Y-text"
-                               placeholder="(-5: 5)"
-                               required type="number">
+                        <input id="Y-text" placeholder="(-5; 5)" type="text">
                     </label>
                 </td>
             </tr>
@@ -90,7 +87,7 @@
 
                 <td>
                     <label>
-                        <input name="R-radio" type="radio" value="3">
+                        <input checked name="R-radio" type="radio" value="3">
                     </label>
                     3
                 </td>
@@ -146,7 +143,7 @@
                     <path d="M 150 30 C 100 30 30 60 30 150 L 150 150 Z" fill="blue" fill-opacity="0.4" stroke="navy"></path>
 
                     <polygon fill="blue" fill-opacity="0.4" points="150,30 270,150 150,150" stroke="navy"></polygon>
-                    
+
                     <rect fill="blue" fill-opacity="0.4" height="60" stroke="navy" width="120" x="30" y="150"></rect>
 
                     <circle cx="150" cy="150" fill="red" fill-opacity="0.7" id="pointer" r="5" stroke="firebrick" visibility="hidden"></circle>
@@ -154,21 +151,53 @@
 
             </tr>
 
+            <tr>
+                <td>
+                    <button id="submitButton" type="submit">Отправить</button>
+                </td>
+
+                <td>
+                    <button id="clearButton" type="button">Очистить таблицу</button>
+                </td>
+            </tr>
+
             </tbody>
 
 
         </table>
 
+    </form>
+
+    <div id="answerTable">
+        <table>
+            <caption>Table</caption>
+
+            <tr>
+                <th scope="col">X</th>
+                <th scope="col">Y</th>
+                <th scope="col">R</th>
+                <th scope="col">Результат</th>
+                <th scope="col">Время</th>
+                <th scope="col">Время работы скрипта</th>
+            </tr>
+
+            <tbody id="answerValues">
+
+            </tbody>
+        </table>
     </div>
 
 
-            <footer>
-                <span>
-                    Веб-программирование, Лабораторная работа №1
-                </span>
-            </footer>
+    <footer>
+        <span>
+            Веб-программирование, Лабораторная работа №1
+        </span>
+    </footer>
 
 </div>
+
+<script src="scriptt.js"></script>
+
 </body>
 
 </html>
