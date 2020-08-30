@@ -45,7 +45,7 @@ const submit = function (e) {
     proceedRValue()
 
     let request = '?x=' + X.value + '&y=' + Y.value + '&r=' + R_value;
-    fetch("answerr.php" + request, {
+    fetch("checkk.php" + request, {
         method: "GET",
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
     }).then(response => response.text()).then(function (serverAnswer) {
@@ -57,3 +57,15 @@ const submit = function (e) {
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('submitButton').addEventListener('click', submit);
 });
+
+document.getElementById("clearButton").onclick = function () {
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'clearr.php')
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            answerValues.innerHTML = xhr.responseText;
+        }
+    }
+    xhr.send()
+}
