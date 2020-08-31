@@ -7,39 +7,34 @@
     <meta content="Антоневич Глеб Владимирович" name="author">
     <meta content="ИТМО, ВТ, ПИП, Лабораторная работа" name="keywords"/>
 
-    <link href="stylee.css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
     <title>Lab №1</title>
 </head>
 
 <body>
 
-<div class="wrapper">
+<div>
 
-    <header class="header">
-
+    <header>
         <span>
             Антоневич Глеб Владимирович, P3211, Вариант 2201
         </span>
     </header>
 
     <form class="content">
-
-        <table>
-
+        <table class="shaded">
             <caption>Валидация введённых значений:</caption>
-
+            <thead>
             <tr>
                 <th scope="col">Переменная</th>
                 <th scope="col">Значение</th>
             </tr>
-
+            </thead>
 
             <tbody>
 
             <tr>
-                <td>
-                    <label>X:</label>
-                </td>
+                <td><label>X:</label></td>
                 <td>
                     <label>
                         <select id="X-select">
@@ -55,7 +50,6 @@
                         </select>
                     </label>
                 </td>
-
             </tr>
 
 
@@ -69,82 +63,79 @@
             </tr>
 
             <tr>
-                <td colspan="2">R:</td>
-
+                <td rowspan="5">R:</td>
                 <td>
                     <label>
+                        1
                         <input name="R-radio" type="radio" value="1">
-                    </label>
-                    1
-                </td>
+                    </label></td>
 
+
+            </tr>
+            <tr>
                 <td>
                     <label>
+                        2
                         <input name="R-radio" type="radio" value="2">
-                    </label>
-                    2
-                </td>
-
+                    </label></td>
+            </tr>
+            <tr>
                 <td>
-                    <label>
-                        <input checked name="R-radio" type="radio" value="3">
-                    </label>
                     3
-                </td>
-
-                <td>
-                    <label>
-                        <input name="R-radio" type="radio" value="4">
-                    </label>
-                    4
-                </td>
-
-                <td>
-                    <label>
-                        <input name="R-radio" type="radio" value="5">
-                    </label>
-                    5
-                </td>
+                    <input checked name="R-radio" type="radio" value="3"></td>
 
             </tr>
 
             <tr>
+                <td>
+                    4
+                    <input name="R-radio" type="radio" value="4"></td>
+                <td>
+            </tr>
+
+            <tr>
+                <td>
+                    5
+                    <input name="R-radio" type="radio" value="5"></td>
+            </tr>
+
+            <tr>
                 <svg>
-                    <line stroke="#000720" x1="0" x2="300" y1="150" y2="150"></line>
-                    <line stroke="#000720" x1="150" x2="150" y1="0" y2="300"></line>
+                    <line stroke="black" x1="0" x2="300" y1="150" y2="150"></line>
+                    <line stroke="black" x1="150" x2="150" y1="0" y2="300"></line>
 
                     <text x="265" y="140">R</text>
-                    <line stroke="#000720" x1="210" x2="210" y1="148" y2="152"></line>
+                    <line stroke="black" x1="210" x2="210" y1="148" y2="152"></line>
 
                     <text x="200" y="140">R/2</text>
-                    <line stroke="#000720" x1="90" x2="90" y1="148" y2="152"></line>
+                    <line stroke="black" x1="90" x2="90" y1="148" y2="152"></line>
 
                     <text x="75" y="140">-R/2</text>
-                    <line stroke="#000720" x1="30" x2="30" y1="148" y2="152"></line>
+                    <line stroke="black" x1="30" x2="30" y1="148" y2="152"></line>
 
                     <text x="20" y="140">-R</text>
-                    <line stroke="#000720" x1="148" x2="152" y1="30" y2="30"></line>
+                    <line stroke="black" x1="148" x2="152" y1="30" y2="30"></line>
 
                     <text x="156" y="35">R</text>
-                    <line stroke="#000720" x1="148" x2="152" y1="90" y2="90"></line>
+                    <line stroke="black" x1="148" x2="152" y1="90" y2="90"></line>
 
                     <text x="156" y="95">R/2</text>
-                    <line stroke="#000720" x1="148" x2="152" y1="210" y2="210"></line>
+                    <line stroke="black" x1="148" x2="152" y1="210" y2="210"></line>
 
                     <text x="156" y="215">-R/2</text>
-                    <line stroke="#000720" x1="148" x2="152" y1="270" y2="270"></line>
+                    <line stroke="black" x1="148" x2="152" y1="270" y2="270"></line>
 
                     <text x="156" y="275">-R</text>
 
-                    <polygon fill="#000720" points="300,150 295,155 295,145" stroke="#000720"></polygon>
-                    <polygon fill="#000720" points="150,0   145,5   155,5" stroke="#000720"></polygon>
+                    <polygon fill="black" points="300,150 295,155 295,145" stroke="black"></polygon>
+                    <polygon fill="black" points="150,0   145,5   155,5" stroke="black"></polygon>
 
 
-                    <path d="M 150 30 C 100 30 30 60 30 150 L 150 150 Z" fill="blue" fill-opacity="0.4" stroke="navy"></path>
+                    <path d="M 150 30 C 100 30 30 60 30 150 L 150 150 Z" fill="#3299FF" fill-opacity="0.5" stroke="black"></path>
 
-                    <polygon fill="blue" fill-opacity="0.4" points="150,30 270,150 150,150" stroke="navy"></polygon>
+                    <polygon fill="#3299FF" fill-opacity="0.5" points="150,30 270,150 150,150" stroke="black"></polygon>
 
-                    <rect fill="blue" fill-opacity="0.4" height="60" stroke="navy" width="120" x="30" y="150"></rect>
+                    <rect fill="#3299FF" fill-opacity="0.5" height="60" stroke="black" width="120" x="30" y="150"></rect>
 
                     <circle cx="150" cy="150" fill="red" fill-opacity="0.7" id="pointer" r="5" stroke="firebrick" visibility="hidden"></circle>
                 </svg>
@@ -153,25 +144,21 @@
 
             <tr>
                 <td>
-                    <button id="submitButton" type="submit">Отправить</button>
+                    <button class="send-button" id="submitButton" type="submit">Отправить</button>
                 </td>
 
                 <td>
-                    <button id="clearButton" type="button">Очистить таблицу</button>
+                    <button class="clear-button" id="clearButton" type="button">Очистить таблицу</button>
                 </td>
             </tr>
 
             </tbody>
-
-
         </table>
 
     </form>
 
-    <div id="answerTable">
+    <div class="content" id="answerTable">
         <table>
-            <caption>Table</caption>
-
             <tr>
                 <th scope="col">X</th>
                 <th scope="col">Y</th>
@@ -188,15 +175,9 @@
     </div>
 
 
-    <footer>
-        <span>
-            Веб-программирование, Лабораторная работа №1
-        </span>
-    </footer>
-
 </div>
 
-<script src="scriptt.js"></script>
+<script src="scripts/script.js"></script>
 
 </body>
 

@@ -1,0 +1,101 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+* {
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: grid;
+    justify-items: center;
+}
+
+header {
+    color: #1e1e1e;
+    background-color: #e1e1e1;
+    text-align: center;
+    font-size: larger;
+    padding: 20px;
+    position: relative;
+}
+
+
+footer {
+    color: #1e1e1e;
+    background-color: #e1e1e1;
+    text-align: center;
+    font-size: larger;
+    padding: 20px;
+    position: relative;
+}
+
+
+svg {
+    height: 300px;
+    width: 300px;
+}
+
+.centered {
+    text-align: center;
+}
+
+
+button {
+    color: #fff;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: small;
+    padding: 8px 16px;
+}
+
+.send-button {
+    background-color: rgb(43, 153, 91);
+    border: 1px solid rgb(33, 126, 74);
+}
+
+.send-button:hover {
+    background-color: rgb(75, 183, 141);
+}
+
+.clear-button {
+    background-color: rgb(187, 11, 16);
+    border: 1px solid rgb(154, 12, 17);
+}
+
+.clear-button:hover {
+    background-color: rgb(225, 12, 19);
+}
+
+.wrapper {
+    display: -webkit-flex;
+}
+
+.shaded {
+    box-shadow: 0 0 10px 1px black
+}
+
+.shaded:hover, .animated:hover {
+    transition: 0.5s
+}
+
+.shaded:hover {
+    box-shadow: 0 0 20px 2px black
+}
+
+#answerTable th {
+    background-color: black;
+    color: white;
+}
+
+#answerTable * {
+    padding: 5px;
+}

@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 
-function checkData($x, $y, $r)
+function isDataValid($x, $y, $r)
 {
     return in_array($x, array(-3, -2, -1, 0, 1, 2, 3, 4, 5), false) &&
         is_numeric($y) && $y > -5 && $y < 5 &&
@@ -24,15 +24,13 @@ function atRectangle($x, $y, $r)
 }
 
 
-function checkCoordinates($x, $y, $r)
-
+function atArea($x, $y, $r)
 {
-
     return (atQuarterCircle($x, $y, $r) || atTriangle($x, $y, $r) || atRectangle($x, $y, $r))
         ?
-        "Yes"
+        "<span style='color: green'>Yes</span>"
         :
-        "No";
+        "<span style='color: red'>No</span>";
 }
 
 session_start();
@@ -45,12 +43,16 @@ $x = (float)$_GET["x"];
 $y = (float)$_GET["y"];
 $r = (float)$_GET["r"];
 
-if (checkData($x, $y, $r)) {
-    $coordsStatus = checkCoordinates($x, $y, $r);
-    $currentTime = date("H : i : s");
-    $benchmarkTime = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
+if (!isDataValid($x, $y, $r)) {
+    http_response_code(400);
+    return;
+}
 
-    $_SESSION["tableRows"][] = "
+$coordsStatus = atArea($x, $y, $r);
+$currentTime = date("H : i : s");
+$benchmarkTime = number_format(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], 10, ".", "") * 1000000;
+
+$_SESSION["tableRows"][] = "
     <tr>
     <td>$x</td>
     <td>$y</td>
@@ -61,9 +63,6 @@ if (checkData($x, $y, $r)) {
     </tr>
     ";
 
-    foreach ($_SESSION["tableRows"] as $tableRow) {
-        echo $tableRow;
-    }
-} else {
-    http_response_code(400);
+foreach ($_SESSION["tableRows"] as $tableRow) {
+    echo $tableRow;
 }
