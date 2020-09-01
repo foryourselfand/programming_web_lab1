@@ -38,7 +38,7 @@ if (!isset($_SESSION["tableRows"])) {
     $_SESSION["tableRows"] = array();
 }
 
-date_default_timezone_set($_GET["timezone"]);
+date_default_timezone_set('Europe/Moscow');
 $x = (float)$_GET["x"];
 $y = (float)$_GET["y"];
 $r = (float)$_GET["r"];
