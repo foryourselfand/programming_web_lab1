@@ -30,25 +30,25 @@ function atArea($x, $y, $r)
 }
 
 session_start();
+date_default_timezone_set('Europe/Moscow');
+
 if (!isset($_SESSION["tableRows"])) {
     $_SESSION["tableRows"] = array();
 }
 
-date_default_timezone_set('Europe/Moscow');
-$x = (float)$_GET["x"];
-$y = (float)$_GET["y"];
-$r = (float)$_GET["r"];
+$x = isset($_GET["x"]) ? (int)$_GET["x"] : 0;
+$y = isset($_GET["y"]) ? (float)str_replace(",", ".", $_GET["y"]) : 0;
+$r = isset($_GET["r"]) ? (int)$_GET["r"] : 3;
 
 if (!isDataValid($x, $y, $r)) {
     http_response_code(418);
-    return;
 }
 
 $coordsStatus = atArea($x, $y, $r);
 $currentTime = date("H : i : s");
 $benchmarkTime = number_format(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], 10, ".", "") * 1000000;
 
-$arr = array(
+$_SESSION["tableRows"][] = array(
     'x' => $x,
     'y' => $y,
     'r' => $r,
@@ -56,7 +56,5 @@ $arr = array(
     'currentTime' => $currentTime,
     'benchmarkTime' => $benchmarkTime
 );
-
-$_SESSION["tableRows"][] = $arr;
 
 echo json_encode($_SESSION["tableRows"]);
