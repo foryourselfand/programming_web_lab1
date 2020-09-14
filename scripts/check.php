@@ -29,6 +29,36 @@ function atArea($x, $y, $r)
     return (atQuarterCircle($x, $y, $r) || atTriangle($x, $y, $r) || atRectangle($x, $y, $r));
 }
 
+function json_encode_for_helios($a = false)
+{
+    if (is_null($a)) {
+        return 'null';
+    }
+    if ($a === false) {
+        return 'false';
+    }
+    if ($a === true) {
+        return 'true';
+    }
+    if (is_scalar($a)) {
+        if (is_float($a)) {
+            return (float)str_replace(',', '.', (string)$a);
+        }
+        if (is_string($a)) {
+            static $jsonReplaces = array(array('\\', '/', "\n", "\t", "\r", "\b", "\f", '"'), array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'));
+            return '"' . str_replace($jsonReplaces[0], $jsonReplaces[1], $a) . '"';
+        }
+
+        return $a;
+    }
+
+    $result = array();
+    foreach ($a as $v) {
+        $result[] = json_encode($v);
+    }
+    return '[' . implode(',', $result) . ']';
+}
+
 session_start();
 date_default_timezone_set('Europe/Moscow');
 
@@ -36,9 +66,9 @@ if (!isset($_SESSION["tableRows"])) {
     $_SESSION["tableRows"] = array();
 }
 
-$x = isset($_GET["x"]) ? (int)$_GET["x"] : 0;
-$y = isset($_GET["y"]) ? (float)str_replace(",", ".", $_GET["y"]) : 0;
-$r = isset($_GET["r"]) ? (int)$_GET["r"] : 3;
+$x = isset($_GET["x"]) ? $_GET["x"] : 0;
+$y = isset($_GET["y"]) ? str_replace(",", ".", $_GET["y"]) : 0;
+$r = isset($_GET["r"]) ? $_GET["r"] : 3;
 
 if (!isDataValid($x, $y, $r)) {
     http_response_code(418);
@@ -57,4 +87,4 @@ $_SESSION["tableRows"][] = array(
     'benchmarkTime' => $benchmarkTime
 );
 
-echo json_encode($_SESSION["tableRows"]);
+echo json_encode_for_helios($_SESSION["tableRows"]);

@@ -58,6 +58,7 @@ const submit = function (e) {
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
     }).then(response => response.json()).then(function (serverAnswer) {
         setPointer();
+        console.log(serverAnswer);
 
         let result = "<tr>";
         for (let row of serverAnswer) {
