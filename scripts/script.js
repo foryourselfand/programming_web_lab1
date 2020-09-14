@@ -60,7 +60,7 @@ const submit = function (e) {
         setPointer();
 
         let result = "<tr>";
-        for (let [index, row] of Object.entries(serverAnswer)) {
+        for (let [index, row] of Object.entries(serverAnswer).reverse()) {
             for (let [key, value] of Object.entries(row)) {
                 if (key === "coordsStatus") {
                     let color;
