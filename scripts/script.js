@@ -56,9 +56,27 @@ const submit = function (e) {
     fetch("scripts/check.php" + request, {
         method: "GET",
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
-    }).then(response => response.text()).then(function (serverAnswer) {
-        answerValues.innerHTML = serverAnswer;
+    }).then(response => response.json()).then(function (serverAnswer) {
         setPointer();
+
+        let result = "<tr>";
+        for (let row of serverAnswer) {
+            for (let [key, value] of Object.entries(row)) {
+                if (key === "coordsStatus") {
+                    let color;
+                    if (value === true)
+                        color = "green"
+                    else
+                        color = "red"
+                    value = "<span style='color: " + color + "'>" + value + "</span>";
+                }
+
+                result += "<td>" + value + "</td>"
+            }
+            result += "</tr>";
+        }
+
+        answerValues.innerHTML = result;
     }).catch(err => console.log(err));
 }
 
@@ -72,7 +90,7 @@ document.getElementById("clearButton").onclick = function () {
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            answerValues.innerHTML = xhr.responseText;
+            answerValues.innerHTML = "";
         }
     }
     xhr.send()

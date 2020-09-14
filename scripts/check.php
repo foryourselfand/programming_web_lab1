@@ -26,11 +26,7 @@ function atRectangle($x, $y, $r)
 
 function atArea($x, $y, $r)
 {
-    return (atQuarterCircle($x, $y, $r) || atTriangle($x, $y, $r) || atRectangle($x, $y, $r))
-        ?
-        "<span style='color: green'>Yes</span>"
-        :
-        "<span style='color: red'>No</span>";
+    return (atQuarterCircle($x, $y, $r) || atTriangle($x, $y, $r) || atRectangle($x, $y, $r));
 }
 
 session_start();
@@ -44,7 +40,7 @@ $y = (float)$_GET["y"];
 $r = (float)$_GET["r"];
 
 if (!isDataValid($x, $y, $r)) {
-    http_response_code(400);
+    http_response_code(418);
     return;
 }
 
@@ -52,17 +48,15 @@ $coordsStatus = atArea($x, $y, $r);
 $currentTime = date("H : i : s");
 $benchmarkTime = number_format(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], 10, ".", "") * 1000000;
 
-$_SESSION["tableRows"][] = "
-    <tr>
-    <td>$x</td>
-    <td>$y</td>
-    <td>$r</td>
-    <td>$coordsStatus</td>
-    <td>$currentTime</td>
-    <td>$benchmarkTime</td>
-    </tr>
-    ";
+$arr = array(
+    'x' => $x,
+    'y' => $y,
+    'r' => $r,
+    'coordsStatus' => $coordsStatus,
+    'currentTime' => $currentTime,
+    'benchmarkTime' => $benchmarkTime
+);
 
-foreach ($_SESSION["tableRows"] as $tableRow) {
-    echo $tableRow;
-}
+$_SESSION["tableRows"][] = $arr;
+
+echo json_encode($_SESSION["tableRows"]);
