@@ -51,12 +51,25 @@ function json_encode_for_helios($a = false)
 
         return $a;
     }
-
-    $result = array();
-    foreach ($a as $v) {
-        $result[] = json_encode($v);
+    for ($i = 0, reset($a); true; $i++) {
+        if (key($a) !== $i) {
+            $isList = false;
+            break;
+        }
     }
-    return '[' . implode(',', $result) . ']';
+    
+    $result = array();
+    if ($isList) {
+        foreach ($a as $v) {
+            $result[] = json_encode_for_helios($v);
+        }
+        return '[' . implode(',', $result) . ']';
+    }
+
+    foreach ($a as $k => $v) {
+        $result[] = json_encode_for_helios((string)$k) . ':' . json_encode_for_helios($v);
+    }
+    return '{' . implode(',', $result) . '}';
 }
 
 session_start();
