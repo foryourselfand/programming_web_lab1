@@ -3,7 +3,8 @@ error_reporting(0);
 
 function isDataValid($x, $y, $r)
 {
-    return in_array($x, array(-3, -2, -1, 0, 1, 2, 3, 4, 5), false) &&
+    return
+        in_array($x, array(-3, -2, -1, 0, 1, 2, 3, 4, 5), false) &&
         is_numeric($y) && $y > -5 && $y < 5 &&
         in_array($r, array(1, 2, 3, 4, 5), false);
 }
@@ -57,7 +58,7 @@ function json_encode_for_helios($a = false)
             break;
         }
     }
-    
+
     $result = array();
     if ($isList) {
         foreach ($a as $v) {
@@ -84,7 +85,8 @@ $y = isset($_GET["y"]) ? str_replace(",", ".", $_GET["y"]) : 0;
 $r = isset($_GET["r"]) ? $_GET["r"] : 3;
 
 if (!isDataValid($x, $y, $r)) {
-    http_response_code(418);
+    http_response_code(400);
+    return;
 }
 
 $coordsStatus = atArea($x, $y, $r);
